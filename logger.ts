@@ -4,6 +4,6 @@ import config from './server/config'
 
 const formatOut = bunyanFormat({ outputMode: 'short', color: !config.production })
 
-const logger = bunyan.createLogger({ name: 'HMPPS Typescript Template', stream: formatOut, level: 'debug' })
+const logger = bunyan.createLogger({ name: 'HMPPS Prisoner Monies Send Money Ui', stream: formatOut, level: 'debug' })
 
 export default logger
