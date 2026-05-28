@@ -3,13 +3,13 @@ name: Pipeline [test -> build -> deploy]
 on:
   push:
     branches:
-      - '**'
+      - "**"
   workflow_dispatch:
     inputs:
       additional_docker_tag:
         description: Additional docker tag that can be used to specify stable or testing tags
         required: false
-        default: ''
+        default: ""
         type: string
       push:
         description: Push docker image to registry flag
@@ -19,6 +19,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
   packages: write
   id-token: write
   attestations: write
@@ -47,8 +48,8 @@ jobs:
     name: node build
     uses: ministryofjustice/hmpps-github-actions/.github/workflows/node_build.yml@v2 # WORKFLOW_VERSION
     secrets: inherit
-    with: 
-      install_command: 'npm run setup'
+    with:
+      install_command: "npm run setup"
   # generic node unit tests - feel free to override with local tests if required
   node_unit_tests:
     name: node unit tests
@@ -64,7 +65,7 @@ jobs:
   helm_lint:
     strategy:
       matrix:
-        environments: ['dev', 'preprod', 'prod']
+        environments: ["dev", "preprod", "prod"]
     name: helm lint
     uses: ministryofjustice/hmpps-github-actions/.github/workflows/test_helm_lint.yml@v2 # WORKFLOW_VERSION
     secrets: inherit
@@ -78,8 +79,8 @@ jobs:
       - node_unit_tests
       - check_publish
     with:
-      docker_registry: 'ghcr.io'
-      registry_org: 'ministryofjustice'
+      docker_registry: "ghcr.io"
+      registry_org: "ministryofjustice"
       additional_docker_tag: ${{ inputs.additional_docker_tag }}
       push: ${{ needs.check_publish.outputs.enabled == 'true' }}
       docker_multiplatform: false
@@ -96,9 +97,9 @@ jobs:
     uses: ministryofjustice/hmpps-github-actions/.github/workflows/deploy_env.yml@v2 # WORKFLOW_VERSION
     secrets: inherit
     with:
-      environment: 'dev'
-      app_version: '${{ needs.build.outputs.app_version }}'
-      slack_notification: 'false' # if 'true', it needs a valid NONPROD_RELEASES_SLACK_CHANNEL variable to be set
+      environment: "dev"
+      app_version: "${{ needs.build.outputs.app_version }}"
+      slack_notification: "false" # if 'true', it needs a valid NONPROD_RELEASES_SLACK_CHANNEL variable to be set
   # deploy_preprod:
   #   name: Deploy to pre-production environment
   #   needs:
