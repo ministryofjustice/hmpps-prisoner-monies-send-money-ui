@@ -1,7 +1,7 @@
 import type { Express } from 'express'
 import request from 'supertest'
 import { appWithAllRoutes, user } from './testutils/appSetup'
-import AuditService, { Page } from '../services/auditService'
+import AuditService from '../services/auditService'
 import ExampleService from '../services/exampleService'
 import HmppsAuditClient from '../data/hmppsAuditClient'
 import ExampleApiClient from '../data/exampleApiClient'
