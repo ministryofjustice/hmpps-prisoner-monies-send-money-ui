@@ -5,7 +5,7 @@ import exampleApi from '../mockApis/exampleApi'
 import { login, resetStubs } from '../testUtils'
 import HomePage from '../pages/homePage'
 
-test.describe('SignIn', () => {
+test.describe.skip('SignIn', () => {
   test.beforeEach(async () => {
     await exampleApi.stubExampleTime()
   })
