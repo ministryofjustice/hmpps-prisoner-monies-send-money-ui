@@ -16,7 +16,7 @@
       {% if environmentName %}
         <div class="govuk-phase-banner">
           {{ govukTag({
-            text: environmentName,
+            text: environmentName | upper,
             classes: environmentNameColour,
             attributes: { "data-qa": "header-phase-banner" }
           }) }}
@@ -26,6 +26,7 @@
 
     <nav aria-label="Account navigation">
       <ul class="hmpps-header__navigation">
+        {#
         {% if user %}
           <li class="hmpps-header__navigation__item">
             <a data-qa="manageDetails" class="hmpps-header__link" href="/account-details" data-test="manage-account-link" rel="noopener noreferrer">
@@ -38,7 +39,7 @@
         <li class="hmpps-header__navigation__item">
           <a data-qa="signOut" class="hmpps-header__link" href="/sign-out">Sign out</a>
         </li>
-      </ul>
+        #}
     </nav>
   </div>
 </header>
