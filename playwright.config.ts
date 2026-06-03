@@ -1,5 +1,6 @@
 import { defineConfig, devices } from '@playwright/test'
 
+const { URL_START_PAGE } = process.env
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -40,9 +41,35 @@ export default defineConfig({
     trace: process.env.CI ? 'off' : 'on',
     ...devices['Desktop Chrome'],
     testIdAttribute: 'data-qa',
-    baseURL: 'http://localhost:3007',
+    baseURL: 'http://localhost:3000',
   },
-
-  /* Configure projects */
   projects: [{ name: 'default' }],
+  /* Configure projects */
+  // projects: [
+  //     {
+  //       name: 'start-page-desktop-chrome',
+  //       use: { baseURL: URL_START_PAGE, ...devices['Desktop Chrome'], isMobile: false},
+  //       testDir: './intergration_tests/specs/start-page',
+  //     },
+  //     {
+  //       name: 'start-page-desktop-firefox',
+  //       use: { baseURL: URL_START_PAGE, ...devices['Desktop Firefox'], isMobile: false},
+  //       testDir: './intergration_tests/start-page',
+  //     },
+  //     {
+  //       name: 'start-page-desktop-safari',
+  //       use: { baseURL: URL_START_PAGE, ...devices['Desktop Safari'], isMobile: false},
+  //       testDir: './intergration_tests/start-page',
+  //     },
+  //     {
+  //       name: 'start-page-mobile-pixel',
+  //       use: { baseURL: URL_START_PAGE, ...devices['Pixel 7']},
+  //       testDir: './intergration_tests/start-page',
+  //     },
+  //     {
+  //       name: 'start-page-mobile-iphone',
+  //       use: { baseURL: URL_START_PAGE, ...devices['iPhone 13']},
+  //       testDir: './intergration_tests/start-page',
+  //     },
+  //   ],
 })
