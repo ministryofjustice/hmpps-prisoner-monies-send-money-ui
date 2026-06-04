@@ -13,7 +13,7 @@ const { URL_START_PAGE } = process.env
  */
 export default defineConfig({
   outputDir: './test_results/playwright/test-output',
-  testDir: './integration_tests/specs',
+  testDir: './integration_tests',
   /* Maximum time one test can run for. (millis) */
   timeout: 3 * 60 * 1000,
   /* Maximum time test suite can run for. (millis) */
@@ -43,33 +43,28 @@ export default defineConfig({
     testIdAttribute: 'data-qa',
     baseURL: 'http://localhost:3000',
   },
-  projects: [{ name: 'default' }],
+  // projects: [{ name: 'default' }],
   /* Configure projects */
-  // projects: [
-  //     {
-  //       name: 'start-page-desktop-chrome',
-  //       use: { baseURL: URL_START_PAGE, ...devices['Desktop Chrome'], isMobile: false},
-  //       testDir: './intergration_tests/specs/start-page',
-  //     },
-  //     {
-  //       name: 'start-page-desktop-firefox',
-  //       use: { baseURL: URL_START_PAGE, ...devices['Desktop Firefox'], isMobile: false},
-  //       testDir: './intergration_tests/start-page',
-  //     },
-  //     {
-  //       name: 'start-page-desktop-safari',
-  //       use: { baseURL: URL_START_PAGE, ...devices['Desktop Safari'], isMobile: false},
-  //       testDir: './intergration_tests/start-page',
-  //     },
-  //     {
-  //       name: 'start-page-mobile-pixel',
-  //       use: { baseURL: URL_START_PAGE, ...devices['Pixel 7']},
-  //       testDir: './intergration_tests/start-page',
-  //     },
-  //     {
-  //       name: 'start-page-mobile-iphone',
-  //       use: { baseURL: URL_START_PAGE, ...devices['iPhone 13']},
-  //       testDir: './intergration_tests/start-page',
-  //     },
-  //   ],
+  projects: [
+    // {
+    //   name: 'start-page-desktop-chrome',
+    //   use: { baseURL: URL_START_PAGE, ...devices['Desktop Chrome'], isMobile: false},
+    // },
+    {
+      name: 'start-page-desktop-firefox',
+      use: { baseURL: URL_START_PAGE, ...devices['Desktop Firefox'], isMobile: false },
+    },
+    // {
+    //   name: 'start-page-desktop-safari',
+    //   use: { baseURL: URL_START_PAGE, ...devices['Desktop Safari'], isMobile: false},
+    // },
+    // {
+    //   name: 'start-page-mobile-pixel',
+    //   use: { baseURL: URL_START_PAGE, ...devices['Pixel 7']},
+    // },
+    // {
+    //   name: 'start-page-mobile-iphone',
+    //   use: { baseURL: URL_START_PAGE, ...devices['iPhone 13']},
+    // },
+  ],
 })
