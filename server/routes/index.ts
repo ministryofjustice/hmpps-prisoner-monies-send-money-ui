@@ -10,7 +10,11 @@ export default function routes({ exampleService }: Services): Router {
     // await auditService.logPageView(Page.EXAMPLE_PAGE, { who: res.locals.user.username, correlationId: req.id })
 
     const currentTime = await exampleService.getCurrentTime()
-    return res.render('pages/index', { currentTime, SEND_MONEY_URL: process.env.SEND_MONEY_URL })
+    return res.render('pages/index', { currentTime })
+  })
+
+  router.get('/start-page', async (_req, res, _next) => {
+    return res.render('pages/start-page', { SEND_MONEY_URL: process.env.SEND_MONEY_URL })
   })
 
   return router

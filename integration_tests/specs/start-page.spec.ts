@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test'
 
 test.beforeEach(async ({ page }) => {
-  await page.goto('')
+  await page.goto('/start-page')
 })
 
 test('Start Now button navigates to correct page', async ({ page }) => {
