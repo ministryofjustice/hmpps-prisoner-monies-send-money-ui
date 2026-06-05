@@ -42,26 +42,24 @@ test('Landing page text content', async ({ page }) => {
   await expect(page.getByRole('button', { name: 'Start now' })).toBeVisible()
 
   // Before You Start section
-  await expect(page.locator('#before-you-start')).toContainText('Before you start')
-  await expect(page.locator('#before-you-start')).toContainText('You’ll need the:')
-  await expect(page.locator('#before-you-start')).toContainText('prisoner’s date of birth')
-  await expect(page.locator('#before-you-start')).toContainText('prisoner number')
+  const beforeYouStart = page.locator('#before-you-start')
 
-  await expect(page.locator('#before-you-start')).toContainText(
+  await expect(beforeYouStart).toContainText('Before you start')
+  await expect(beforeYouStart).toContainText('You’ll need the:')
+  await expect(beforeYouStart).toContainText('prisoner’s date of birth')
+  await expect(beforeYouStart).toContainText('prisoner number')
+
+  await expect(beforeYouStart).toContainText(
     'You can get help with making a payment, ask a question about a payment you’ve already made, or get help with accessing the service.',
   )
-  await expect(page.locator('#before-you-start')).toContainText(
-    'You may be able to apply for an exemption - for example if you:',
-  )
-  await expect(page.locator('#before-you-start')).toContainText(
+  await expect(beforeYouStart).toContainText('You may be able to apply for an exemption - for example if you:')
+  await expect(beforeYouStart).toContainText(
     'are unable to use a computer, a smart phone or the internet do not have a debit card',
   )
-  await expect(page.locator('#before-you-start')).toContainText(
-    'are unable to use a computer, a smart phone or the internet',
-  )
-  await expect(page.locator('#before-you-start')).toContainText('do not have a debit card')
-  await expect(page.locator('#before-you-start')).toContainText('This will allow you to send money by post.')
-  await expect(page.locator('#before-you-start')).toContainText(
+  await expect(beforeYouStart).toContainText('are unable to use a computer, a smart phone or the internet')
+  await expect(beforeYouStart).toContainText('do not have a debit card')
+  await expect(beforeYouStart).toContainText('This will allow you to send money by post.')
+  await expect(beforeYouStart).toContainText(
     'You can also find out how to get a debit card by setting up a basic bank account.',
   )
 
