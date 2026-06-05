@@ -1,6 +1,7 @@
 import { defineConfig, devices } from '@playwright/test'
 
-const { URL_START_PAGE } = process.env
+const { URL_START_PAGE, BASE_URL: baseUrl = 'http://localhost:3000' } = process.env
+
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -44,7 +45,12 @@ export default defineConfig({
     baseURL: 'http://localhost:3000',
   },
   // projects: [{ name: 'default' }],
-  /* Configure projects */
+  webServer: {
+    command: 'npm run start:dev',
+    url: `${baseUrl}/start-page`,
+    reuseExistingServer: !process.env.CI,
+    timeout: 120_000,
+  },
   projects: [
     // {
     //   name: 'start-page-desktop-chrome',
