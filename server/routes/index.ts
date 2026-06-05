@@ -17,5 +17,8 @@ export default function routes({ exampleService }: Services): Router {
     return res.render('pages/start-page', { SEND_MONEY_URL: process.env.SEND_MONEY_URL })
   })
 
+  router.get('/info-page', async (_req, res, _next) => {
+    return res.render('pages/info-page')
+  })
   return router
 }
