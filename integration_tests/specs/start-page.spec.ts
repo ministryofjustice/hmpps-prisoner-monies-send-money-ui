@@ -16,7 +16,7 @@ test('Start now button with navigation', async ({ page }) => {
   await expect(page.getByRole('heading', { level: 1, name: /Before you continue/i })).toBeVisible()
 })
 
-test('other topics to explore', async ({ page }) => {
+test('Staying in touch link with navigation', async ({ page }) => {
   const stayingInTouchLink = page.getByRole('link', { name: 'Staying in touch with someone in prison' })
   await expect(stayingInTouchLink).toBeVisible()
   stayingInTouchLink.click()
