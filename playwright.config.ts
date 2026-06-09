@@ -1,6 +1,6 @@
 import { defineConfig, devices } from '@playwright/test'
 
-const { URL_START_PAGE, BASE_URL: baseUrl = 'http://localhost:3000' } = process.env
+const { BASE_URL: baseUrl = 'http://localhost:3000' } = process.env
 
 /**
  * Read environment variables from file.
@@ -54,23 +54,23 @@ export default defineConfig({
   projects: [
     // {
     //   name: 'start-page-desktop-chrome',
-    //   use: { baseURL: URL_START_PAGE, ...devices['Desktop Chrome'], isMobile: false},
+    //   use: { baseURL: baseUrl, ...devices['Desktop Chrome'], isMobile: false},
     // },
     {
       name: 'start-page-desktop-firefox',
-      use: { baseURL: URL_START_PAGE, ...devices['Desktop Firefox'], isMobile: false },
+      use: { baseURL: baseUrl, ...devices['Desktop Firefox'], isMobile: false },
     },
     // {
     //   name: 'start-page-desktop-safari',
-    //   use: { baseURL: URL_START_PAGE, ...devices['Desktop Safari'], isMobile: false},
+    //   use: { baseURL: baseUrl, ...devices['Desktop Safari'], isMobile: false},
     // },
     // {
     //   name: 'start-page-mobile-pixel',
-    //   use: { baseURL: URL_START_PAGE, ...devices['Pixel 7']},
+    //   use: { baseURL: baseUrl, ...devices['Pixel 7']},
     // },
     // {
     //   name: 'start-page-mobile-iphone',
-    //   use: { baseURL: URL_START_PAGE, ...devices['iPhone 13']},
+    //   use: { baseURL: baseUrl, ...devices['iPhone 13']},
     // },
   ],
 })
