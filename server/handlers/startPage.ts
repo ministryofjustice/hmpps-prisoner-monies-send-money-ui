@@ -1,14 +1,17 @@
 import type { RequestHandler } from 'express'
 
-const GOV_UK_START_PAGE_URL = 'https://www.gov.uk/send-prisoner-money'
-const { ENVIRONMENT_NAME = 'DEV', SEND_MONEY_URL } = process.env
+export type startPageHandlerConfig = {
+  production: boolean
+  productionStartPageUrl: string
+  sendMoneyUrl: string
+}
 
-function startPageHandler(): RequestHandler {
+function startPageHandler(config: startPageHandlerConfig): RequestHandler {
   return (_req, res) => {
-    if (ENVIRONMENT_NAME === 'PROD') {
-      return res.redirect(GOV_UK_START_PAGE_URL)
+    if (config.production) {
+      return res.redirect(config.productionStartPageUrl)
     }
-    return res.render('pages/start-page', { SEND_MONEY_URL })
+    return res.render('pages/start-page', { sendMoneyUrl: config.sendMoneyUrl })
   }
 }
 

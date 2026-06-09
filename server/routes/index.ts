@@ -1,8 +1,9 @@
 import { Router } from 'express'
 
 import type { Services } from '../services'
+
+import config from '../config'
 import startPageHandler from '../handlers/startPage'
-// import { Page } from '../services/auditService'
 
 export default function routes({ exampleService }: Services): Router {
   const router = Router()
@@ -14,7 +15,14 @@ export default function routes({ exampleService }: Services): Router {
     return res.render('pages/index', { currentTime })
   })
 
-  router.get('/start-page', startPageHandler())
+  router.get(
+    '/start-page',
+    startPageHandler({
+      production: config.production,
+      productionStartPageUrl: config.productionStartPageUrl,
+      sendMoneyUrl: config.sendMoneyUrl,
+    }),
+  )
 
   router.get('/info-page', async (_req, res, _next) => {
     return res.render('pages/info-page')
