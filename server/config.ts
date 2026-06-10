@@ -88,7 +88,7 @@ export default {
   ingressUrl: get('INGRESS_URL', 'http://localhost:3000', requiredInProduction),
   environmentName: get('ENVIRONMENT_NAME', ''),
   // Add new vars below!
-  sendMoneyUrl: get('SEND_MONEY_URL', 'http://localhost:8004', requiredInProduction),
+  sendMoneyUrl: get('SEND_MONEY_URL', 'http://send-money-url.gov.uk', requiredInProduction),
   productionStartPageUrl: get(
     'PRODUCTION_START_PAGE_URL',
     'https://www.gov.uk/send-prisoner-money',

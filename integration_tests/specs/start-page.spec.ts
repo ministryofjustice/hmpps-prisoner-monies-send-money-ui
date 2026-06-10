@@ -9,11 +9,9 @@ test('Heading', async ({ page }) => {
 })
 
 test('Start now button with navigation', async ({ page }) => {
-  const expectedUrl = 'http://localhost:8004'
-
   const startNowButton = page.getByRole('button', { name: 'Start now' })
   await expect(startNowButton).toBeVisible()
-  await expect(startNowButton).toHaveAttribute('href', expectedUrl)
+  await expect(startNowButton).toHaveAttribute('href', 'http://send-money-url.gov.uk')
 
   // TODO Add this code in once we've begun on the Send Money service proper
   // await startNowButton.click()
