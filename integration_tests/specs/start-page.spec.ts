@@ -9,10 +9,16 @@ test('Heading', async ({ page }) => {
 })
 
 test('Start now button with navigation', async ({ page }) => {
+  const expectedUrl = process.env.SEND_MONEY_URL
+  if (!expectedUrl) throw new Error('SEND_MONEY_URL must be set for Playwright tests')
+
   const startNowButton = page.getByRole('button', { name: 'Start now' })
   await expect(startNowButton).toBeVisible()
-  await startNowButton.click()
-  await expect(page.getByRole('heading', { level: 1, name: /Before you continue/i })).toBeVisible()
+  await expect(startNowButton).toHaveAttribute('href', expectedUrl)
+
+  // TODO Add this code in once we've begun on the Send Money service proper
+  // await startNowButton.click()
+  // await expect(page.getByRole('heading', { level: 1, name: /Before you continue/i })).toBeVisible()
 })
 
 test('Staying in touch link with navigation', async ({ page }) => {
