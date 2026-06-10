@@ -9,8 +9,7 @@ test('Heading', async ({ page }) => {
 })
 
 test('Start now button with navigation', async ({ page }) => {
-  const expectedUrl = process.env.SEND_MONEY_URL
-  if (!expectedUrl) throw new Error('SEND_MONEY_URL must be set for Playwright tests')
+  const expectedUrl = 'http://localhost:8004'
 
   const startNowButton = page.getByRole('button', { name: 'Start now' })
   await expect(startNowButton).toBeVisible()
