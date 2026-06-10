@@ -1,7 +1,5 @@
 import { defineConfig, devices } from '@playwright/test'
 
-const { BASE_URL: baseUrl = 'http://localhost:3000' } = process.env
-
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -14,7 +12,7 @@ const { BASE_URL: baseUrl = 'http://localhost:3000' } = process.env
  */
 export default defineConfig({
   outputDir: './test_results/playwright/test-output',
-  testDir: './integration_tests',
+  testDir: './integration_tests/specs',
   /* Maximum time one test can run for. (millis) */
   timeout: 3 * 60 * 1000,
   /* Maximum time test suite can run for. (millis) */
@@ -42,35 +40,9 @@ export default defineConfig({
     trace: process.env.CI ? 'off' : 'on',
     ...devices['Desktop Chrome'],
     testIdAttribute: 'data-qa',
-    baseURL: 'http://localhost:3000',
+    baseURL: 'http://localhost:3007',
   },
-  // projects: [{ name: 'default' }],
-  webServer: {
-    command: 'npm run start:dev',
-    url: `${baseUrl}/start-page`,
-    reuseExistingServer: !process.env.CI,
-    timeout: 120_000,
-  },
-  projects: [
-    // {
-    //   name: 'start-page-desktop-chrome',
-    //   use: { baseURL: baseUrl, ...devices['Desktop Chrome'], isMobile: false},
-    // },
-    {
-      name: 'start-page-desktop-firefox',
-      use: { baseURL: baseUrl, ...devices['Desktop Firefox'], isMobile: false },
-    },
-    // {
-    //   name: 'start-page-desktop-safari',
-    //   use: { baseURL: baseUrl, ...devices['Desktop Safari'], isMobile: false},
-    // },
-    // {
-    //   name: 'start-page-mobile-pixel',
-    //   use: { baseURL: baseUrl, ...devices['Pixel 7']},
-    // },
-    // {
-    //   name: 'start-page-mobile-iphone',
-    //   use: { baseURL: baseUrl, ...devices['iPhone 13']},
-    // },
-  ],
+
+  /* Configure projects */
+  projects: [{ name: 'default' }],
 })
