@@ -29,7 +29,7 @@ afterEach(() => {
 })
 
 describe('GET /', () => {
-  it.skip('should render index page', () => {
+  it('should render index page', () => {
     auditService.logPageView.mockResolvedValue(undefined)
     exampleService.getCurrentTime.mockResolvedValue('2025-01-01T12:00:00.000')
 
