@@ -17,7 +17,7 @@ test.describe('Example', () => {
 
     const examplePage = await ExamplePage.verifyOnPage(page)
 
-    await expect(examplePage.timestamp).toContainText('The time is currently')
+    expect(examplePage.timestamp).toContainText('The time is currently')
   })
 
   test.skip('ExampleApi failure shows error page', async ({ page }) => {
