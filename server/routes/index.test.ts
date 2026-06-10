@@ -63,3 +63,29 @@ describe('GET /', () => {
       })
   })
 })
+
+describe('GET /start-page', () => {
+  it('should render start page', () => {
+    return request(app)
+      .get('/start-page')
+      .expect('Content-Type', /html/)
+      .expect(200)
+      .expect(res => {
+        expect(res.text).toContain('Send money to someone in prison')
+        expect(res.text).toContain('Start now')
+        expect(res.text).toContain('href="http://send-money-url.gov.uk"')
+      })
+  })
+})
+
+describe('GET /info-page', () => {
+  it('should render info page', () => {
+    return request(app)
+      .get('/info-page')
+      .expect('Content-Type', /html/)
+      .expect(200)
+      .expect(res => {
+        expect(res.text).toContain('Staying in touch with someone in prison')
+      })
+  })
+})
