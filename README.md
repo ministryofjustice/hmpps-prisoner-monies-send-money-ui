@@ -2,6 +2,13 @@
 
 [![Ministry of Justice Repository Compliance Badge](https://github-community.service.justice.gov.uk/repository-standards/api/hmpps-prisoner-monies-send-money-ui/badge?style=flat)](https://github-community.service.justice.gov.uk/repository-standards/
 
+## Testing pages
+
+The start page and information page are for testing only and are not used in production. They support end-to-end testing of the Send Money user journey in developer environments.
+
+The production versions are managed separately by GOV.UK.
+
+
 ## Component dependencies
 
 ### REDIS
