@@ -8,7 +8,6 @@ The start page and information page are for testing only and are not used in pro
 
 The production versions are managed separately by GOV.UK.
 
-
 ## Component dependencies
 
 ### REDIS
