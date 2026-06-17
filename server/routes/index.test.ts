@@ -73,7 +73,7 @@ describe('GET /start-page', () => {
       .expect(res => {
         expect(res.text).toContain('Send money to someone in prison')
         expect(res.text).toContain('Start now')
-        expect(res.text).toContain('href="http://send-money-url.gov.uk"')
+        expect(res.text).toContain('href="http://localhost:8004"')
       })
   })
 })

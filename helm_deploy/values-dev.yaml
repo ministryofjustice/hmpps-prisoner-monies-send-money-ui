@@ -17,7 +17,6 @@ generic-service:
     AUDIT_ENABLED: "false"
     # Extra ones
     SEND_MONEY_URL: "https://send-money-test.prisoner-money.service.justice.gov.uk/"
-    PRODUCTION_START_PAGE_URL: "https://www.gov.uk/send-prisoner-money"
 
 generic-prometheus-alerts:
   alertSeverity: NON_PROD_ALERTS_SEVERITY_LABEL
