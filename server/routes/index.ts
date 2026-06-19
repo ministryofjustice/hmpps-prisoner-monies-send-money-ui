@@ -1,22 +1,14 @@
 import { Router } from 'express'
 
-import type { Services } from '../services'
-
 import config from '../config'
 import startPageHandler from '../handlers/startPage'
+import { Services } from '../services'
 
-export default function routes({ exampleService }: Services): Router {
+export default function routes(_services: Services): Router {
   const router = Router()
 
-  router.get('/', async (_req, res, _next) => {
-    // await auditService.logPageView(Page.EXAMPLE_PAGE, { who: res.locals.user.username, correlationId: req.id })
-
-    const currentTime = await exampleService.getCurrentTime()
-    return res.render('pages/index', { currentTime })
-  })
-
   router.get(
-    '/start-page',
+    '/',
     startPageHandler({
       production: config.production,
       productionStartPageUrl: config.productionStartPageUrl,
