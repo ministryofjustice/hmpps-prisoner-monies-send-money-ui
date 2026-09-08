@@ -1,9 +1,19 @@
 import { HmppsUser } from '../../interfaces/hmppsUser'
 
 export declare module 'express-session' {
+  type ApiToken = {
+    access_token: string
+    refresh_token?: string
+    expires_in: number
+    token_type: string
+    scope?: string
+    obtained_at: number
+  }
+
   // Declare that the session will potentially contain these additional fields
   interface SessionData {
     returnTo: string
+    apiToken?: ApiToken
   }
 }
 
