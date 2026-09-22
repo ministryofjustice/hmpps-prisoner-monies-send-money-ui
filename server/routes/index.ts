@@ -19,5 +19,27 @@ export default function routes(_services: Services): Router {
   router.get('/info-page', async (_req, res, _next) => {
     return res.render('pages/info-page')
   })
+
+  router.get('/en-gb/', async (_req, res, _next) => {
+    return res.render('pages/before-you-continue', { continueUrl: '/payment-choice', backLinkHref: '/' })
+  })
+
+  router.get('/payment-choice', async (_req, res, _next) => {
+    return res.status(404).send('Not Found')
+    // return res.render('pages/payment-choice')
+  })
+
+  router.get('/terms', async (_req, res, _next) => {
+    return res.render('pages/terms')
+  })
+
+  router.get('/privacy', async (_req, res, _next) => {
+    return res.render('pages/privacy')
+  })
+
+  router.get('/contact-us', async (_req, res, _next) => {
+    return res.render('pages/contact-us')
+  })
+
   return router
 }

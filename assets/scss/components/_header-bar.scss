@@ -109,6 +109,11 @@
     }
   }
 
+  .govuk-phase-banner {
+    @include govuk-width-container;
+    border: none;
+  }
+
   @media print {
     display: none;
   }
@@ -138,9 +143,4 @@
   @media print {
     display: none;
   }
-}
-
-.govuk-phase-banner {
-  @include govuk-width-container;
-  border: none;
 }
