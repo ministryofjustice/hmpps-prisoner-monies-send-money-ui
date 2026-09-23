@@ -74,6 +74,7 @@ describe('GET /payment-choice', () => {
       .expect(res => {
         expect(res.text).toContain('Pay now by debit card')
         expect(res.text).toContain('id="id_debit_card"')
+        expect(res.text).toContain('href="/debit-card/details"')
         expect(res.text).toContain('govuk-back-link')
       })
   })
