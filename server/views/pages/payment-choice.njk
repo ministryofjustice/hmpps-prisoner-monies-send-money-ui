@@ -1,6 +1,6 @@
 {% extends "../partials/layout.njk" %}
 
-{% set pageTitle = "Choose payment method - " + applicationName %}
+{% set pageTitle = "Pay now by debit card - " + applicationName %}
 {% set mainClasses = "govuk-body" %}
 
 {% block content %}
@@ -8,9 +8,32 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Choose payment method</h1>
+      <header>
+        <h1 class="govuk-heading-xl">Pay now by debit card</h1>
+      </header>
 
-      <p class="govuk-body-l">This page is a placeholder for the next step of the send money flow.</p>
+      <p class="govuk-body-l">
+        Paying by debit card is fast, simple, reliable and free and the best way of sending money to a prisoner.
+      </p>
+
+      <p class="govuk-body">
+        You can complete your payment here using Mastercard, Visa and Maestro debit cards.
+        Money usually takes less than 3 working days to reach a prisoner's account, but may take longer.
+      </p>
+
+      <p class="govuk-body">
+        You'll get email confirmation of payment.
+      </p>
+
+      <p class="govuk-body">
+        You can make an international payment using a debit card.
+      </p>
+
+      <form method="post">
+        <button id="id_debit_card" name="payment_method" value="debit_card" class="govuk-button" data-module="govuk-button" data-prevent-double-click="true">
+          Continue
+        </button>
+      </form>
 
     </div>
   </div>
