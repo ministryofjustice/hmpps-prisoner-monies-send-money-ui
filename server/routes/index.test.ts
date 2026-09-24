@@ -66,13 +66,16 @@ describe('GET /en-gb/', () => {
 })
 
 describe('GET /payment-choice', () => {
-  it('should render payment choice placeholder page', () => {
+  it('should render payment choice page', () => {
     return request(app)
       .get('/payment-choice')
       .expect('Content-Type', /html/)
-      .expect(404)
+      .expect(200)
       .expect(res => {
-        expect(res.text).toContain('Not Found')
+        expect(res.text).toContain('Pay now by debit card')
+        expect(res.text).toContain('id="id_debit_card"')
+        expect(res.text).toContain('href="/debit-card/details"')
+        expect(res.text).toContain('govuk-back-link')
       })
   })
 })
