@@ -77,6 +77,21 @@ describe('GET /payment-choice', () => {
   })
 })
 
+describe('GET /debit-card/details', () => {
+  it('should render enter prisoner details page', () => {
+    return request(app)
+      .get('/debit-card/details')
+      .expect('Content-Type', /html/)
+      .expect(200)
+      .expect(res => {
+        expect(res.text).toContain('Enter prisoner details')
+        expect(res.text).toContain('govuk-back-link')
+        expect(res.text).toContain('href="/en-gb/payment-choice"')
+        expect(res.text).toContain('id="id_next_btn"')
+      })
+  })
+})
+
 describe('GET /terms', () => {
   it('should render terms page', () => {
     return request(app)

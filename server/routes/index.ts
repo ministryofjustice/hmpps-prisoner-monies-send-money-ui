@@ -29,6 +29,13 @@ export default function routes(_services: Services): Router {
     // return res.render('pages/payment-choice', { backLinkHref: '/en-gb/' })
   })
 
+  router.get('/debit-card/details', async (_req, res, _next) => {
+    // return res.status(404).send('Not Found')
+    return res.render('pages/prisoner-details', {
+      backLinkHref: '/en-gb/payment-choice',
+    })
+  })
+
   router.get('/terms', async (_req, res, _next) => {
     return res.render('pages/terms')
   })
