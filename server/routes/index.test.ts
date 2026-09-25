@@ -92,6 +92,19 @@ describe('GET /debit-card/details', () => {
   })
 })
 
+describe('POST /debit-card/details', () => {
+  it('should submit form data and navigate to the amount page', () => {
+    return request(app)
+      .post('/debit-card/details')
+      .expect(200)
+      .redirects(1)
+      .expect('Content-Type', /html/)
+      .expect(res => {
+        expect(res.text).toContain('Amount')
+      })
+  })
+})
+
 describe('GET /terms', () => {
   it('should render terms page', () => {
     return request(app)

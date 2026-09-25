@@ -36,6 +36,18 @@ export default function routes(_services: Services): Router {
     })
   })
 
+  router.post('/debit-card/details', async (_req, res, _next) => {
+    // return res.status(404).send('Not Found')
+    res.redirect('/debit-card/amount')
+  })
+
+  router.get('/debit-card/amount', async (_req, res, _next) => {
+    // return res.status(404).send('Not Found')
+    return res.render('pages/payment-amount', {
+      backLinkHref: '/en-gb/debit-card/details',
+    })
+  })
+
   router.get('/terms', async (_req, res, _next) => {
     return res.render('pages/terms')
   })
